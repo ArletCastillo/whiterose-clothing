@@ -1,4 +1,4 @@
-import { intializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -10,7 +10,7 @@ const firebaseConfig = {
     appId: "1:710254227906:web:ed3a65a9d82209bcbde65b"
   };
   
-  const firebaseApp = intializeApp(firebaseConfig);
+  const firebaseApp = initializeApp(firebaseConfig);
   const provider = new GoogleAuthProvider();
 
   provider.setCustomParameters({
