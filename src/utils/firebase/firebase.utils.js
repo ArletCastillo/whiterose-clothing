@@ -12,15 +12,15 @@ const firebaseConfig = {
   };
   
   const firebaseApp = initializeApp(firebaseConfig);
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
-  provider.setCustomParameters({
+  googleProvider.setCustomParameters({
     prompt: "select_account"
   });
 
   // it's a singleton class, that's why no 'new'
   export const auth = getAuth();
-  export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
+  export const signInWithGooglePopUp = () => signInWithPopup(auth, googleProvider);
 
   export const db = getFirestore();
   export const createUserDocumentFromAuth = async (userauth) => {
