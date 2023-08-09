@@ -14,13 +14,31 @@ const SignUpForm = () => {
 
     // console.log(formFields);
 
+    const resetFormFields = () => {
+        setFormFields(defaultFormFields);
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(password !== confirmPassword) return;
-        const { user } = await createAuthUserWithEmailAndPassword(email, password);
-        user.displayName = displayName;
-        await createUserDocumentFromAuth(user);
+        if(password !== confirmPassword) {
+            alert('Passwords do not match')
+            return;
+        }
+        try {
+            const { user } = await createAuthUserWithEmailAndPassword(email, password);
+            user.displayName = displayName;
+            await createUserDocumentFromAuth(user);    
+            resetFormFields();
+        } 
+        catch(error) {
+            if (error.code === 'auth/email-already-in-use') {
+                alert('Cannot create user, email already in use');
+            } 
+            else {
+                console.log(error);
+            }
+        }
     }
 
     const handleChange = (event) => {
