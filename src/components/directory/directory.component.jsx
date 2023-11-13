@@ -4,7 +4,7 @@ import './directory.styless.css'
 
 const Directory = ({categories}) => {
     return(
-        <div className='categories-container'>
+        <div className='directory-container'>
             {categories.map((category) => (
                 <DirectoryItem key={category.id} category={category} />
             ))}
