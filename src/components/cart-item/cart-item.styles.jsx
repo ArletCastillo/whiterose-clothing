@@ -6,7 +6,7 @@ export const CartItemContainer = styled.div`
   height: 80px;
   margin-bottom: 15px;
 `
-styled.img`
+export const StyledImg = styled.img`
   width: 30%;
 `
 export const ItemDetails = styled.div`
